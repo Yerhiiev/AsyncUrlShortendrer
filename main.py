@@ -40,7 +40,7 @@ async def redirecter(request):
     collection = db['redirects']
     document = await collection.find_one({'resource_id': resource_id})
     if document is None:
-        return  web.Response(text='Not Found', status=404)
+        return web.Response(text='Not Found', status=404)
     long_url = document['long_url']
     return web.HTTPFound(long_url)
 
